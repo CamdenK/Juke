@@ -25,7 +25,7 @@ const Sidebar = (props) => {
           {
             playlists.map(playlist => (
               <li key = {playlist.id}className="playlist-item menu-item">
-                <Link to="WHERE_TO_GO">{playlist.name}</Link>
+                <Link to={`/playlist/${playlist.id}`}>{playlist.name}</Link>
               </li>
             ))
           }

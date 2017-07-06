@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 export default class NewPlaylist extends Component {
-  constructor(){
+  constructor(props){
     super()
     this.defaultState = {value: "", dirty: false}
     this.state = {input:this.defaultState}
@@ -36,11 +36,7 @@ export default class NewPlaylist extends Component {
     // this.setState({input:e.target.value})
     e.preventDefault()
     let name = this.state.input.value
-    axios.post('/api/playlists', {name})
-    .then(res => res.data)
-    .then(result => console.log(result))
-    .catch(console.log('oops'))
-
+    this.props.addPlaylist(name)
     this.setState({input: this.defaultState})
   }
 
